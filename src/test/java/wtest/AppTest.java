@@ -2,10 +2,12 @@ package wtest;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.After;
 import org.junit.Test;
 import org.junit.Assert;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,16 +17,18 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class AppTest
 {
     /**
      * Rigorous Test :-)
      */
+
+    WebDriver driver;
+
     @Test
-    public void webapptest() throws Exception
+    public void main() throws Exception
     {
 
-            WebDriver driver;
             //WebDriverManager.chromedriver().setup();
             System.setProperty("webdriver.chrome.driver", "/home/ubuntu/chromedriver");
             ChromeOptions options = new ChromeOptions();
@@ -45,5 +49,9 @@ public class AppTest
 	    driver.quit();
     }
 
-
+    @After
+    public void cleanup()
+    {
+       driver.quit();
+    }
 }
