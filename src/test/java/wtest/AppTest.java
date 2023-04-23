@@ -39,7 +39,7 @@ public class AppTest
 		"--allow-running-insecure-content");
             options.merge(caps);
             driver = new ChromeDriver(options);
-            driver.get("http://localhost");
+            driver.get("http://localhost:30036");
             Thread.sleep(2000);
             System.out.print("Title of the page is: " + driver.getTitle() + "\n");
 	    String actualTitle = driver.getTitle();
